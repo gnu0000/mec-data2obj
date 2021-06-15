@@ -1,0 +1,12 @@
+node_modules/
+build/
+dist/
+bkup/
+*.bak
+*.zip
+*.exe
+*.obj
+*.plb
+*.opt
+*.idb
+*.rgs

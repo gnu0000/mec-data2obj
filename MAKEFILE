@@ -1,0 +1,24 @@
+DEBUG = FALSE
+
+!IF "$(DEBUG)" == "TRUE"
+COPT = /c /W3 /AL /Od /Zip /nologo
+LOPT = /CO/NOLOGO/NOE/ST:18000
+LIBS = Gnu16d
+EXCP = rem
+!ELSE
+COPT = /c /W3 /AL /Ox /Grs /Zp /nologo
+LOPT = /E/F/PACKC/NOLOGO/NOE/ST:18000
+LIBS = Gnu16o
+EXCP = pklite -p
+!ENDIF
+
+PROG = Data2Obj
+
+all : $(PROG).exe
+
+$(PROG).obj : $(PROG).c
+  cl $(COPT) $*.c
+
+$(PROG).exe : $(PROG).obj
+  link $* $(LOPT),,NUL,$(LIBS);
+  $(EXCP) $(@B).EXE
